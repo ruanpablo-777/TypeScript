@@ -1,0 +1,40 @@
+🔹 Instalar globalmente (opcional)
+npm install -g typescript
+
+🔹 Instalar no projeto (recomendado)
+npm init -y        # (Se ainda não tiver um package.json)
+npm install typescript --save-dev
+
+2️⃣ Criando o arquivo de configuração tsconfig.json
+npx tsc --init
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true
+  }
+}
+
+3️⃣ Criando um arquivo TypeScript
+function saudacao(nome: string): string {
+    return `Olá, ${nome}!`;
+}
+console.log(saudacao("Ruan"));
+
+4️⃣ Compilando o TypeScript
+npx tsc
+
+5️⃣ Executando o código
+node dist/index.js
+
+6️⃣ Automação (opcional)
+"scripts": {
+  "build": "tsc",
+  "start": "node dist/index.js",
+  "dev": "tsc --watch"
+}
+npm run build   # Compila TypeScript para JavaScript
+npm run start   # Roda o código compilado
+npm run dev     # Recompila automaticamente ao salvar
